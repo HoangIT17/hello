@@ -1,0 +1,240 @@
+@import url('http://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&dsplay=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:#23242a;
+}
+
+.box{
+    position: relative;
+    width: 390px;
+    height: 490px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+    
+}
+.box::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 390px;
+    height: 490px;
+    background: linear-gradient(30deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    z-index: 1;
+}
+.box::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 390px;
+    height: 490px;
+    background: linear-gradient(30deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+    z-index: 1;
+}
+
+.boxLine{
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.boxLine::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 390px;
+    height: 490px;
+    background: linear-gradient(30deg,transparent,transparent,#ff2770,#ff2770),#ff2770;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+    z-index: 1;
+}
+.boxLine::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 390px;
+    height: 490px;
+    background: linear-gradient(30deg,transparent,transparent,#ff2770,#ff2770),#ff2770;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+    z-index: 1;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+form{
+    position: absolute;
+    inset: 2px;
+    border-radius: 8px;
+    background: #222;
+    padding: 20px 40px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    color: #45f3ff;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0,1rem;
+}
+.inputBox{
+    position: relative;
+    width: 300px;
+    margin-top: 30px;
+
+}
+.inputBox input{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;    
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+
+}
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:valid ~ span{
+
+    color: #45f3ff;
+    font-size: 0.75em;
+    transform: translateX(-10px) translateY(-35px);
+
+}
+.inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #45f3ff;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+
+}
+
+.inputBox input:valid ~i,
+.inputBox input:focus ~i{
+    height: 44px;
+}
+
+.rBtn{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+}
+.lbl{
+    font-size: 16px;
+    color: #8f8f8f;
+
+}
+.radio-wrapper{
+    margin: 20px; 
+
+}
+
+input[type="radio"]{
+    opacity: 0;
+
+}
+input[type="radio"] + label {
+    position: relative;
+    color: #8f8f8f;
+    cursor: pointer;
+}
+input[type="radio"] + label::before
+{
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    left: -24px;
+    top: 0;
+    border: 1px solid #6e6e6e;
+    border-radius: 50%;
+}
+
+input[type="radio"] + label::after{
+    position:absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    left: -20px;
+    top: 4px;
+    border-radius: 50%;
+
+}
+
+input[type="radio"]:focus + label ::before{
+    box-shadow: 0 0 0 2px rgba(69,243,255,0.7);
+}
+
+input[type="radio"]:checked + label::after{
+    background: #45f3ff;
+
+}
+
+input[type="submit"]{
+    border: none;
+    outline: none;
+    background: #45f3ff;
+    padding: 11px 25px;
+    font-size: 0.9em;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+input[type="submit"]:active{
+    opacity: 0.8;
+}
